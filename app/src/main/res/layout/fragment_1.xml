@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".Fragment1"
+        android:paddingBottom="70dp">
+
+        <View
+            android:id="@+id/mainView1"
+            android:layout_width="match_parent"
+            android:layout_height="151dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="84dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/ic_mainview_design"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/mainView2"
+            android:layout_width="match_parent"
+            android:layout_height="154dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/ic_mainview_design"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainView1" />
+
+        <View
+            android:id="@+id/mainView"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/ic_mainview_design"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainView2" />
+
+        <TextView
+            android:id="@+id/txtLunch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gyunggi_bold"
+            android:text="오늘의 메뉴"
+            android:textColor="#2196F3"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/mainView1"
+            app:layout_constraintEnd_toEndOf="@+id/mainView1"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="@+id/mainView1"
+            app:layout_constraintTop_toTopOf="@+id/mainView1"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <TextView
+            android:id="@+id/txtPopular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gyunggi_bold"
+            android:text="인기 게시글"
+            android:textColor="#2196F3"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/mainView"
+            app:layout_constraintEnd_toEndOf="@+id/mainView"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="@+id/mainView"
+            app:layout_constraintTop_toTopOf="@+id/mainView"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <TextView
+            android:id="@+id/txtCommunity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gyunggi_bold"
+            android:text="커뮤니티"
+            android:textColor="#2196F3"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/mainView2"
+            app:layout_constraintEnd_toEndOf="@+id/mainView2"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="@+id/mainView2"
+            app:layout_constraintTop_toTopOf="@+id/mainView2"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <TextView
+            android:id="@+id/txtSchool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="41dp"
+            android:fontFamily="@font/gyunggi_bold"
+            android:text="OO고등학교"
+            android:textColor="#2196F3"
+            android:textSize="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/gyunggi_bold"
+            android:text="랭킹 1위"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtLunchMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gyunggi_medium"
+            android:text="더 보기>"
+            android:textColor="#676767"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="@+id/mainView1"
+            app:layout_constraintEnd_toEndOf="@+id/mainView1"
+            app:layout_constraintHorizontal_bias="0.965"
+            app:layout_constraintStart_toStartOf="@+id/mainView1"
+            app:layout_constraintTop_toTopOf="@+id/mainView1"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <TextView
+            android:id="@+id/txtCommunityMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gyunggi_medium"
+            android:text="더 보기>"
+            android:textColor="#676767"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="@+id/mainView2"
+            app:layout_constraintEnd_toEndOf="@+id/mainView2"
+            app:layout_constraintHorizontal_bias="0.965"
+            app:layout_constraintStart_toStartOf="@+id/mainView2"
+            app:layout_constraintTop_toTopOf="@+id/mainView2"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <TextView
+            android:id="@+id/txtPopularMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gyunggi_medium"
+            android:text="더 보기>"
+            android:textColor="#676767"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="@+id/mainView"
+            app:layout_constraintEnd_toEndOf="@+id/mainView"
+            app:layout_constraintHorizontal_bias="0.965"
+            app:layout_constraintStart_toStartOf="@+id/mainView"
+            app:layout_constraintTop_toTopOf="@+id/mainView"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <TextView
+            android:id="@+id/txtLunchInner"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/gyunggi_medium"
+            android:text="오늘의 메뉴가 아직 정해지지 않았습니다."
+            app:layout_constraintBottom_toBottomOf="@+id/mainView1"
+            app:layout_constraintEnd_toEndOf="@+id/mainView1"
+            app:layout_constraintStart_toStartOf="@+id/mainView1"
+            app:layout_constraintTop_toTopOf="@+id/mainView1"
+            app:layout_constraintVertical_bias="0.8" />
+
+        <TextView
+            android:id="@+id/txtCommunityInner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="11dp"
+            android:fontFamily="@font/gyunggi_medium"
+            android:text="게시글이 존재하지 않습니다."
+            android:textSize="16dp"
+            app:layout_constraintStart_toEndOf="@+id/txtCommunityInner2"
+            app:layout_constraintTop_toBottomOf="@+id/txtCommunity" />
+
+        <TextView
+            android:id="@+id/txtCommunityInner2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/gyunggi_bold"
+            android:text="자유게시판"
+            android:textSize="17dp"
+            app:layout_constraintStart_toStartOf="@+id/mainView2"
+            app:layout_constraintTop_toBottomOf="@+id/txtCommunity" />
+
+        <TextView
+            android:id="@+id/txtPopularInner"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/gyunggi_medium"
+            android:text="게시글이 존재하지 않습니다."
+            app:layout_constraintBottom_toBottomOf="@+id/mainView"
+            app:layout_constraintEnd_toEndOf="@+id/mainView"
+            app:layout_constraintStart_toStartOf="@+id/mainView"
+            app:layout_constraintTop_toTopOf="@+id/mainView"
+            app:layout_constraintVertical_bias="0.8" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/ic_btn_circle"
+            android:fontFamily="@font/gyunggi_bold"
+            android:gravity="center"
+            android:text="\?"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/txtSchool"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/crown"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/mainView3"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/ic_mainview_design"
+            app:layout_constraintTop_toBottomOf="@+id/mainView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <TextView
+            android:id="@+id/txtCalendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gyunggi_bold"
+            android:text="시간표"
+            android:textColor="#2196F3"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/mainView3"
+            app:layout_constraintEnd_toEndOf="@+id/mainView3"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="@+id/mainView3"
+            app:layout_constraintTop_toTopOf="@+id/mainView3"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <TextView
+            android:id="@+id/txtCalendarInner"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/gyunggi_medium"
+            android:text="등록된 일정이 없습니다."
+            app:layout_constraintBottom_toBottomOf="@+id/mainView3"
+            app:layout_constraintEnd_toEndOf="@+id/mainView3"
+            app:layout_constraintStart_toStartOf="@+id/mainView3"
+            app:layout_constraintTop_toTopOf="@+id/mainView3"
+            app:layout_constraintVertical_bias="0.8" />
+
+        <TextView
+            android:id="@+id/txtCalendarMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gyunggi_medium"
+            android:text="더 보기>"
+            android:textColor="#676767"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="@+id/mainView3"
+            app:layout_constraintEnd_toEndOf="@+id/mainView3"
+            app:layout_constraintHorizontal_bias="0.965"
+            app:layout_constraintStart_toStartOf="@+id/mainView3"
+            app:layout_constraintTop_toTopOf="@+id/mainView3"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <View
+            android:id="@+id/mainView4"
+            android:layout_width="match_parent"
+            android:layout_height="265dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/ic_mainview_design"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainView3" />
+
+        <TextView
+            android:id="@+id/txtMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/gyunggi_bold"
+            android:text="학교 위치"
+            android:textColor="#2196F3"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/mainView4"
+            app:layout_constraintStart_toStartOf="@+id/mainView4"
+            app:layout_constraintTop_toTopOf="@+id/mainView4"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <FrameLayout
+            android:id="@+id/mapFrame"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintEnd_toEndOf="@+id/mainView4"
+            app:layout_constraintStart_toStartOf="@+id/mainView4"
+            app:layout_constraintTop_toTopOf="@+id/mainView4"></FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
