@@ -10,8 +10,8 @@
 ### **--개발환경--**
 
   + **IDE** : Android Studio, Eclipse
-  + **Frond-End : Android / Java
-  + **Back-End : JSP / Spring Framework 4.3
+  + **Frond-End** : Android / Java
+  + **Back-End** : JSP / Spring Framework 4.3
   + **DB** : MySql
 
 ### **--기대효과--**
