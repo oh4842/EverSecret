@@ -12,7 +12,8 @@
   + **IDE** : Android Studio, Eclipse
   + **Frond-End** : Android / Java
   + **Back-End** : JSP / Spring Framework 4.3
-  + **DB** : MySql
+  + **DB** : MySql / RDBMS
+  + **Use** : Mybatis, Maven, tomcat
 
 ### **--기대효과--**
 
@@ -47,48 +48,49 @@
 
   ![School_Table](https://user-images.githubusercontent.com/32236195/127333525-1e983b0d-a3d4-4280-9b47-d7d2de51f201.png)
   
-### **--회원가입--**
+#### **--회원가입--**
 
 
 ![SignUp](https://user-images.githubusercontent.com/32236195/127333527-e72554dc-9994-4aad-b329-e9d826b9c9e7.png)
 
-### **--로그인--**
+#### **--로그인--**
 
 
 ![Login](https://user-images.githubusercontent.com/32236195/127333534-305e38b6-c2b2-4620-84d4-38fe2cc3a9c1.png)
 
-### **--학교 위치 확인--**
+#### **--학교 위치 확인--**
 
 
 ![School_Gps](https://user-images.githubusercontent.com/32236195/127333528-694b5553-8395-4725-b500-d2520704de93.png)
 
-### **--글 작성--**
+#### **--글 작성--**
 
 
 ![Write](https://user-images.githubusercontent.com/32236195/127333530-71f6f3da-8006-45f3-90b9-ad9082731e84.png)
 
 
-### **--글 확인--**
+#### **--글 확인--**
 
 
 ![BoardChk](https://user-images.githubusercontent.com/32236195/127333532-2c9cf579-b7f0-450e-acee-ca0962eb3d9f.png)
 
-### **--좌측 슬라이드 바--**
+#### **--좌측 슬라이드 바--**
 
 
 ![SideBar](https://user-images.githubusercontent.com/32236195/127333536-463bd77e-8bba-480a-8f13-13344caa1fc5.png)
 
-## **--Code--**
-
+### **--Code--**
+---
+  + **_게시판에서 글을 작성하는 한 과정을 소개하려한다._**
   + 대부분 Class들이 BoardCreat와 비슷한 형식으로 구현되어있다.
-  + 게시판에서 글을 작성하는 한 과정
-
-### **--HttpClient.java--**
+  
+---
+**--HttpClient.java--**
 
   + Spring과의 데이터 연동을 위해 HTTP 통신을 사용하기 위해 사용하는 클래스로
   + https://coding-factory.tistory.com/32 | 코딩팩토리에서 가져와서 사용함.
-
-### **--IP_and_Port.java--**
+---
+**--IP_and_Port.java--**
 
   + 개발 시 매 번 바뀌는 유동 IP를 일일이 클래스마다 고칠 수 없어서 만든 부분
 
@@ -104,8 +106,8 @@ public class IP_and_Port {
     }
 }
 ```
-
-### **--BoardCreat.java--**
+---
+**--BoardCreat.java--**
 
   + Map 형식으로 담아서 Json으로 보내주기 위함.
   + HTTP 통신을 위한 IP, Port가 입력된 클래스를 가져온다.
@@ -134,8 +136,8 @@ public class BoardCreat extends AsyncTask<Map<String, String>, Integer, String> 
     }
 }
 ```
-
-### **--BoardCreatFragment.java--**
+---
+**--BoardCreatFragment.java--**
 
   + 버튼이 클릭 되었을 때 각각의 EditText에 입력된 값들을 Map에 넣어 보내고 화면 전환
 
@@ -229,7 +231,7 @@ public void remove(Integer bno) throws Exception;
 
 ---
 
---Mapper 쿼리문--
+**--Mapper 쿼리문--**
 
 ```xml
 <!-- 글쓰기 -->
