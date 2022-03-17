@@ -81,11 +81,12 @@
 ## **--Code--**
 
   + 대부분 Class들이 BoardCreat와 비슷한 형식으로 구현되어있다.
+  + 게시판에서 글을 작성하는 한 과정
 
 ### **--HttpClient.java--**
 
   + Spring과의 데이터 연동을 위해 HTTP 통신을 사용하기 위해 사용하는 클래스로
-  + https://coding-factory.tistory.com/32 | 코딩팩토리에서 가져와서 사용한다.
+  + https://coding-factory.tistory.com/32 | 코딩팩토리에서 가져와서 사용함.
 
 ### **--IP_and_Port.java--**
 
@@ -129,10 +130,11 @@ public class BoardCreat extends AsyncTask<Map<String, String>, Integer, String> 
         // 응답 본문 가져오기
         String body = post.getBody();
 
-        return body; // return 되면 아래의 onPostExecute의 인수로 넘어감
+        return body;
     }
 }
 ```
+
 ### **--BoardCreatFragment.java--**
 
   + 버튼이 클릭 되었을 때 각각의 EditText에 입력된 값들을 Map에 넣어 보내고 화면 전환
@@ -159,4 +161,95 @@ try {
     e.printStackTrace();
   }
 }
+```
+
+### **--Spring에서의 동작--**
+  + code | https://github.com/oh4842/EverSecretServer
+  + HTTP 통신으로 URL에 맞춰 들어온 후의 동작이다.
+
+---
+
+**--Board 객체--**
+  
+  + DB에 맞춰서 생성한 객체
+```java
+  private String bno;
+	private String title;
+	private String content;
+	private String writer;
+	private String regdate;
+	private int viewcnt;
+```
+
+---
+
+**--BoardService.java--**
+
+  + 게시판 서비스 전체를 관리하기 위한 interface class이다.
+
+```java
+// 게시판 글 작성
+public void regist(BoardVO board) throws Exception;
+
+// 중략...
+  
+public void modifyPage(BoardVO board) throws Exception;
+// 삭제
+public void remove(Integer bno) throws Exception;
+```
+
+---
+
+**--SecretController.java--**
+
+  + 통신이 연결되고난 후의 모든 값의 처리를 담당하는 Spring의 Controller 부분
+  + URL을 맞춰서 통신을 연결 한 후 객체에 맞게 값을 넣어준다
+  + regist는 게시판 전체의 서비스를 관리하기 위한 interface인 BoardService에 있다.
+  + regist가 실행되면 Mybatis로 연결된 과정을 차례대로 수행하여 값을 처리한다.
+
+```java
+@Inject
+	private BoardService board_service;
+  
+@ResponseBody
+  @RequestMapping(value = "/board_create")
+  public void board_create(@ModelAttribute BoardVO vo, HttpServletRequest request) throws Exception{
+		
+  String title = request.getParameter("title");
+  String content = request.getParameter("content");
+  String writer = request.getParameter("writer");
+		
+  vo.setTitle(title);
+  vo.setContent(content);
+  vo.setWriter(writer);
+		
+  board_service.regist(vo);
+}
+```
+
+---
+
+--Mapper 쿼리문--
+
+```xml
+<!-- 글쓰기 -->
+<insert id="create">
+  insert into secret.tbl_board (title, content, writer)
+  values(#{title},#{content}, #{writer})
+</insert>
+<!-- 게시글 전체? 보이기 limit 50-->
+<select id="listAll" resultType="com.inhatc.domain.BoardVO">
+  <![CDATA[
+    select 
+      bno, title, content, writer, regdate, viewcnt 
+    from 
+      tbl_board 
+ 		where bno > 0 
+ 			order by bno desc, regdate desc limit 50
+ 	]]>
+</select>
+// 중략...
+<select id="getLastBoard" resultType="com.inhatc.domain.BoardVO">
+  select * from tbl_board order by bno desc LIMIT 1;
+</select>
 ```
