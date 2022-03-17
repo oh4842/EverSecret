@@ -250,7 +250,9 @@ public void remove(Integer bno) throws Exception;
  			order by bno desc, regdate desc limit 50
  	]]>
 </select>
+
 // 중략...
+
 <select id="getLastBoard" resultType="com.inhatc.domain.BoardVO">
   select * from tbl_board order by bno desc LIMIT 1;
 </select>
