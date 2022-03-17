@@ -1,6 +1,6 @@
 # EverSecret
 
-## Android_Prject / Spring_boot / Tomcat
+## Android / Spring / Tomcat / Mysql
 
 ### **--목적--**
 
@@ -67,6 +67,7 @@
 
 ![Write](https://user-images.githubusercontent.com/32236195/127333530-71f6f3da-8006-45f3-90b9-ad9082731e84.png)
 
+
 ### **--글 확인--**
 
 
@@ -76,3 +77,86 @@
 
 
 ![SideBar](https://user-images.githubusercontent.com/32236195/127333536-463bd77e-8bba-480a-8f13-13344caa1fc5.png)
+
+## **--Code--**
+
+  + 대부분 Class들이 BoardCreat와 비슷한 형식으로 구현되어있다.
+
+### **--HttpClient.java--**
+
+  + Spring과의 데이터 연동을 위해 HTTP 통신을 사용하기 위해 사용하는 클래스로
+  + https://coding-factory.tistory.com/32 | 코딩팩토리에서 가져와서 사용한다.
+
+### **--IP_and_Port.java--**
+
+  + 개발 시 매 번 바뀌는 유동 IP를 일일이 클래스마다 고칠 수 없어서 만든 부분
+
+```java
+public class IP_and_Port {
+
+    public String getIp() {
+        return "192.168.000.000";
+    }
+
+    public String getPort() {
+        return "8081";
+    }
+}
+```
+
+### **--BoardCreat.java--**
+
+  + Map 형식으로 담아서 Json으로 보내주기 위함.
+  + HTTP 통신을 위한 IP, Port가 입력된 클래스를 가져온다.
+  + HTTP를 연결한 후 Spring Controller에서 처리된 값을 가져온다.
+
+```java
+public class BoardCreat extends AsyncTask<Map<String, String>, Integer, String> {
+
+    @Override
+    protected String doInBackground(Map<String, String>... maps) {
+        IP_and_Port ipAndPort = new IP_and_Port();
+        String ip = ipAndPort.getIp();
+        String port = ipAndPort.getPort();
+        HttpClient.Builder http = new HttpClient.Builder("POST", "http://" + ip + ":" + port + "/secret/board_create");
+        http.addAllParameters(maps[0]);
+
+        HttpClient post = http.create();
+        post.request();
+
+        int statusCode = post.getHttpStatusCode();
+
+        // 응답 본문 가져오기
+        String body = post.getBody();
+
+        return body; // return 되면 아래의 onPostExecute의 인수로 넘어감
+    }
+}
+```
+### **--BoardCreatFragment.java--**
+
+  + 버튼이 클릭 되었을 때 각각의 EditText에 입력된 값들을 Map에 넣어 보내고 화면 전환
+
+```java
+public void onClick(View v) {
+strtitle = title.getText().toString().trim();
+strcontent = content.getText().toString();
+
+try {
+  BoardCreat boardCreat = new BoardCreat();
+  Map<String, String> params = new HashMap<String, String>();
+  params.put("title", strtitle);
+  params.put("content", strcontent);
+  params.put("writer", bundle.getString("nickname"));
+
+  boardCreat.execute(params);
+  Toast.makeText(getActivity(), "등록 완료!", Toast.LENGTH_SHORT);
+
+  FreeBoardFrgment freeBoardFrgment = new FreeBoardFrgment();
+  freeBoardFrgment.setArguments(getArguments());
+  ((MainActivity)getActivity()).replaceFragment(freeBoardFrgment);
+  }catch (Exception e){
+    e.printStackTrace();
+  }
+}
+```
